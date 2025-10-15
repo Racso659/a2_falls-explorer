@@ -19,7 +19,9 @@ const initialLocations = [
     { title: "Felker's Falls", lat: 43.2263, lng: -79.7788, category: "Cascada", address: "Ackland St", unique_info: "A stepped waterfall with a small park surrounding it." },
     { title: "Sherman Falls", lat: 43.2450, lng: -79.9670, category: "Cascada", address: "Old Dundas Rd", unique_info: "A wide and powerful waterfall, easy to photograph." },
     { title: "Dundas Peak Trailhead", lat: 43.2995, lng: -79.9950, category: "Sendero", address: "581 Harvest Rd", unique_info: "Starting point for several key trails with views." },
-    { title: "Smokey Hollow Falls", lat: 43.3320, lng: -79.9482, category: "Cascada", address: "Smokey Hollow Rd", unique_info: "A beautiful waterfall off the beaten path." }
+    { title: "Smokey Hollow Falls", lat: 43.3320, lng: -79.9482, category: "Cascada", address: "Smokey Hollow Rd", unique_info: "A beautiful waterfall off the beaten path." },
+    { title: "Chedoke Radial Trail", lat: 43.2570, lng: -79.9042, category: "Sendero", address: "Scenic Dr & Chedoke Park", unique_info: "Popular trail that follows an old railway line with great views of the escarpment." },
+    { title: "Turtle Trail (Cootes Paradise)", lat: 43.2680, lng: -79.8860, category: "Sendero", address: "Cootes Paradise Sanctuary", unique_info: "Easy loop trail perfect for birdwatching and enjoying the marshland ecosystem." }
 ];
 function initMap() {
     const hamilton = { lat: 43.2557, lng: -79.8711 }; 
