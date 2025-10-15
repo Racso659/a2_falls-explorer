@@ -21,4 +21,24 @@ const initialLocations = [
     { title: "Dundas Peak Trailhead", lat: 43.2995, lng: -79.9950, category: "Sendero", address: "581 Harvest Rd", unique_info: "Punto de inicio para varios senderos clave con vistas." },
     { title: "Smokey Hollow Falls", lat: 43.3320, lng: -79.9482, category: "Cascada", address: "Smokey Hollow Rd", unique_info: "Una hermosa cascada fuera de lo común." }
 ];
+function initMap() {
+    const hamilton = { lat: 43.2557, lng: -79.8711 }; 
+
+    map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 11,
+        center: hamilton,
+        mapId: 'DEMO_MAP_ID' 
+    });
+
+    // Google maps services
+    infoWindow = new google.maps.InfoWindow();
+    geocoder = new google.maps.Geocoder();
+    directionsService = new google.maps.DirectionsService();
+    directionsRenderer = new google.maps.DirectionsRenderer({ map: map });
+    
+    // Cargar marcadores iniciales
+    initialLocations.forEach(addMarker);
+    populateDestinationSelect();
+}
+
 

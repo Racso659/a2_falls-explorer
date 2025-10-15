@@ -12,11 +12,18 @@
         <div class="row">
             <div id="map-col" class="col-12 col-md-9 p-0">
                 <div id="map"></div>
+                
             </div>
 
             <div id="controls-col" class="col-12 col-md-3 p-3">
                 <h4 class="mb-3">Hamilton Falls Explorer</h4>
-                
+                <h5 class="mt-3">location filters (4 Mín.)</h5>
+<div class="d-grid gap-2 d-md-block mb-4">
+    <button class="btn btn-primary btn-sm" onclick="filterMarkers('Todos')">Show All</button>
+    <button class="btn btn-outline-primary btn-sm" onclick="filterMarkers('Cascada')">Falls</button>
+    <button class="btn btn-outline-primary btn-sm" onclick="filterMarkers('Sendero')">Hikings</button>
+    <button class="btn btn-outline-primary btn-sm" onclick="filterMarkers('Parque')">Parks</button>
+</div>
                 </div>
         </div>
     </div>
