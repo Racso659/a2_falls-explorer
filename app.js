@@ -189,4 +189,35 @@ function setDestinationFromTitle(title) {
         calculateRoute();
     }
 }
+function calculateRoute() {
+    const destinationIndex = document.getElementById('destinationSelect').value;
+
+    if (!userCoords) {
+        alert("Error! You must click 'Mark My Location' first to set the origin.");
+        return;
+    }
+    if (!destinationIndex) {
+        alert("You must select a destination.");
+        return;
+    }
+
+    const originLocation = userCoords; 
+    const destinationItem = allMarkers[destinationIndex];
+    
+    const request = {
+        origin: originLocation,
+        destination: destinationItem.position,
+        travelMode: google.maps.TravelMode.DRIVING 
+    };
+
+    directionsRenderer.setDirections({ routes: [] }); 
+    
+    directionsService.route(request, (result, status) => {
+        if (status === 'OK') {
+            directionsRenderer.setDirections(result);
+        } else {
+            alert('Could not calculate route: ' + status);
+        }
+    });
+}
 
