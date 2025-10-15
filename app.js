@@ -167,3 +167,26 @@ function handleNewMarkerSubmit(event) {
     });
 }
 
+// Populates the Destination dropdown with all marker titles added from Hamilton or areas
+function populateDestinationSelect() {
+    const select = document.getElementById('destinationSelect');
+    select.innerHTML = '<option value="">Select a destination</option>'; 
+
+    allMarkers.forEach((item, index) => {
+        const option = document.createElement('option');
+        option.value = index; 
+        option.textContent = item.title;
+        select.appendChild(option);
+    });
+}
+
+// Helper to set the dropdown value when clicking the InfoWindow link
+function setDestinationFromTitle(title) {
+    const select = document.getElementById('destinationSelect');
+    const option = Array.from(select.options).find(opt => opt.textContent === title);
+    if (option) {
+        select.value = option.value;
+        calculateRoute();
+    }
+}
+
