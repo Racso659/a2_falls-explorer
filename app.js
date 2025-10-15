@@ -91,6 +91,7 @@ function filterMarkers(category) {
     });
 }
 
+
 let userLocationMarker = null;
 
 function getLocation() {
@@ -107,6 +108,7 @@ function success(position) {
         lng: position.coords.longitude
     };
 
+  
     if (userLocationMarker) {
         userLocationMarker.setMap(null);
     }
@@ -116,7 +118,7 @@ function success(position) {
         map: map,
         title: "My current location",
         icon: {
-            url: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png', ', // <-- ¡ERROR AQUÍ!
+            url: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png', 
             scaledSize: new google.maps.Size(40, 40)
         }
     });
@@ -129,4 +131,6 @@ function success(position) {
 function error(err) {
     alert(`Geolocation error! code ${err.code}: ${err.message}`);
 }
+
+
 
