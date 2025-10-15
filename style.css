@@ -9,23 +9,4 @@
 }
 
 
-@media (max-width: 768px) {
-    /* Cambio 1: Map Height */
-    #map {
-        height: 60vh; 
-    }
 
-    #map-col {
-        order: 1; 
-    }
-    #controls-col {
-        order: 2; 
-
-        max-height: 40vh; 
-    }
-    /* Cambio 3: Full width buttons for filters */
-    .d-grid button {
-        width: 100%;
-        margin-bottom: 5px;
-    }
-}
