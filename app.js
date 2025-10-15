@@ -132,5 +132,38 @@ function error(err) {
     alert(`Geolocation error! code ${err.code}: ${err.message}`);
 }
 
+//marker submission 
+function handleNewMarkerSubmit(event) {
+    event.preventDefault(); 
 
+    const address = document.getElementById('newAddress').value;
+    const title = document.getElementById('newTitle').value;
+    const category = document.getElementById('newCategory').value;
+    const unique_info = document.getElementById('newUniqueInfo').value;
+
+    geocoder.geocode({ 'address': address }, (results, status) => {
+        if (status === 'OK') {
+            const location = results[0].geometry.location;
+            
+            const newLocationData = {
+                title: title,
+                address: address,
+                category: category,
+                unique_info: unique_info,
+                lat: location.lat(),
+                lng: location.lng()
+            };
+
+            addMarker(newLocationData); // Reuse addMarker function
+            map.setCenter(location);
+            
+            populateDestinationSelect(); 
+            
+            document.getElementById('new-marker-form').reset();
+            
+        } else {
+            alert('Geocoding failed for the following reason: ' + status);
+        }
+    });
+}
 
