@@ -120,7 +120,7 @@ function success(position) {
         map: map,
         title: "My current location",
         icon: {
-            url: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png', 
+            url: 'images/MapPin.png', 
             scaledSize: new google.maps.Size(40, 40)
         }
     });
