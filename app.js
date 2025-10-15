@@ -9,19 +9,19 @@ let userCoords = null;
 
 // Information of the falls, more than 10 marks
 const initialLocations = [
-    { title: "Albion Falls", lat: 43.2045, lng: -79.8149, category: "Cascada", address: "885 Mountain Brow Blvd", unique_info: "One of the most beautiful cascade waterfalls in the area." },
-    { title: "Tew Falls", lat: 43.2987, lng: -79.9926, category: "Cascada", address: "581 Harvest Rd", unique_info: "The tallest waterfall in Hamilton, nearly as high as Niagara!" },
-    { title: "Webster's Falls", lat: 43.3005, lng: -79.9928, category: "Cascada", address: "581 Harvest Rd", unique_info: "A classic curtain-type waterfall, great viewpoint." },
-    { title: "Tiffany Falls", lat: 43.2504, lng: -79.9723, category: "Sendero", address: "900 Wilson St W", unique_info: "A thin and elegant waterfall, popular for hiking." },
-    { title: "Borer's Falls", lat: 43.3323, lng: -80.0039, category: "Cascada", address: "Rock Chapel Rd", unique_info: "A remote waterfall with excellent valley views." },
+    { title: "Albion Falls", lat: 43.2045, lng: -79.8149, category: "Falls", address: "885 Mountain Brow Blvd", unique_info: "One of the most beautiful cascade waterfalls in the area." },
+    { title: "Tew Falls", lat: 43.2987, lng: -79.9926, category: "Falls", address: "581 Harvest Rd", unique_info: "The tallest waterfall in Hamilton, nearly as high as Niagara!" },
+    { title: "Webster's Falls", lat: 43.3005, lng: -79.9928, category: "Falls", address: "581 Harvest Rd", unique_info: "A classic curtain-type waterfall, great viewpoint." },
+    { title: "Tiffany Falls", lat: 43.2504, lng: -79.9723, category: "Hiking", address: "900 Wilson St W", unique_info: "A thin and elegant waterfall, popular for hiking." },
+    { title: "Borer's Falls", lat: 43.3323, lng: -80.0039, category: "Falls", address: "Rock Chapel Rd", unique_info: "A remote waterfall with excellent valley views." },
     { title: "Devil's Punchbowl", lat: 43.2201, lng: -79.7678, category: "Parque", address: "Regional Rd 56", unique_info: "A deep canyon with a small waterfall and panoramic views." },
-    { title: "Princess Falls", lat: 43.2483, lng: -79.9871, category: "Sendero", address: "Cootes Paradise Trail", unique_info: "A waterfall on the trail, ideal for a quiet stroll." },
-    { title: "Felker's Falls", lat: 43.2263, lng: -79.7788, category: "Cascada", address: "Ackland St", unique_info: "A stepped waterfall with a small park surrounding it." },
-    { title: "Sherman Falls", lat: 43.2450, lng: -79.9670, category: "Cascada", address: "Old Dundas Rd", unique_info: "A wide and powerful waterfall, easy to photograph." },
-    { title: "Dundas Peak Trailhead", lat: 43.2995, lng: -79.9950, category: "Sendero", address: "581 Harvest Rd", unique_info: "Starting point for several key trails with views." },
-    { title: "Smokey Hollow Falls", lat: 43.3320, lng: -79.9482, category: "Cascada", address: "Smokey Hollow Rd", unique_info: "A beautiful waterfall off the beaten path." },
-    { title: "Chedoke Radial Trail", lat: 43.2570, lng: -79.9042, category: "Sendero", address: "Scenic Dr & Chedoke Park", unique_info: "Popular trail that follows an old railway line with great views of the escarpment." },
-    { title: "Turtle Trail (Cootes Paradise)", lat: 43.2680, lng: -79.8860, category: "Sendero", address: "Cootes Paradise Sanctuary", unique_info: "Easy loop trail perfect for birdwatching and enjoying the marshland ecosystem." }
+    { title: "Princess Falls", lat: 43.2483, lng: -79.9871, category: "Hiking", address: "Cootes Paradise Trail", unique_info: "A waterfall on the trail, ideal for a quiet stroll." },
+    { title: "Felker's Falls", lat: 43.2263, lng: -79.7788, category: "Falls", address: "Ackland St", unique_info: "A stepped waterfall with a small park surrounding it." },
+    { title: "Sherman Falls", lat: 43.2450, lng: -79.9670, category: "Falls", address: "Old Dundas Rd", unique_info: "A wide and powerful waterfall, easy to photograph." },
+    { title: "Dundas Peak Trailhead", lat: 43.2995, lng: -79.9950, category: "Hiking", address: "581 Harvest Rd", unique_info: "Starting point for several key trails with views." },
+    { title: "Smokey Hollow Falls", lat: 43.3320, lng: -79.9482, category: "Falls", address: "Smokey Hollow Rd", unique_info: "A beautiful waterfall off the beaten path." },
+    { title: "Chedoke Radial Trail", lat: 43.2570, lng: -79.9042, category: "Hiking", address: "Scenic Dr & Chedoke Park", unique_info: "Popular trail that follows an old railway line with great views of the escarpment." },
+    { title: "Turtle Trail (Cootes Paradise)", lat: 43.2680, lng: -79.8860, category: "Hiking", address: "Cootes Paradise Sanctuary", unique_info: "Easy loop trail perfect for birdwatching and enjoying the marshland ecosystem." }
 ];
 function initMap() {
     const hamilton = { lat: 43.2557, lng: -79.8711 }; 
@@ -55,8 +55,8 @@ function addMarker(locationData) {
     const content = `
         <div class="info-window-content">
             <h5 class="mb-1 text-primary">${locationData.title}</h5>
-            <p class="mb-1"><strong>Categoría:</strong> ${locationData.category}</p>
-            <p class="mb-1"><strong>Dirección:</strong> ${locationData.address}</p>
+            <p class="mb-1"><strong>Category:</strong> ${locationData.category}</p>
+            <p class="mb-1"><strong>Address:</strong> ${locationData.address}</p>
             <p class="mb-1 text-muted">${locationData.unique_info}</p>
             <hr class="my-1">
             <button class="btn btn-sm btn-info text-white mt-1" 
