@@ -80,4 +80,53 @@ function addMarker(locationData) {
     });
 }
 
+function filterMarkers(category) {
+    allMarkers.forEach(item => {
+        // Muestra el marcador si es 'Todos' o si coincide la categoría
+        if (category === 'Todos' || item.category === category) {
+            item.marker.setVisible(true);
+        } else {
+            item.marker.setVisible(false);
+        }
+    });
+}
+
+let userLocationMarker = null;
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(success, error, { timeout: 10000 });
+    } else {
+        alert("Geolocation is not supported on the browser");
+    }
+}
+
+function success(position) {
+    userCoords = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+    };
+
+    if (userLocationMarker) {
+        userLocationMarker.setMap(null);
+    }
+
+    userLocationMarker = new google.maps.Marker({
+        position: userCoords,
+        map: map,
+        title: "My current location",
+        icon: {
+            url: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png', ', // <-- ¡ERROR AQUÍ!
+            scaledSize: new google.maps.Size(40, 40)
+        }
+    });
+
+    map.setCenter(userCoords);
+    infoWindow.setContent('<div class="text-center">¡You are here! (origin of the route)</div>');
+    infoWindow.open(map, userLocationMarker);
+}
+
+function error(err) {
+    alert(`Geolocation error! code ${err.code}: ${err.message}`);
+}
 
