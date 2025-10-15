@@ -41,4 +41,43 @@ function initMap() {
     populateDestinationSelect();
 }
 
+function addMarker(locationData) {
+    const marker = new google.maps.Marker({
+        position: { lat: locationData.lat, lng: locationData.lng },
+        map: map,
+        title: locationData.title
+    });
+
+// app.js - Dentro de la función addMarker
+// ...
+    const content = `
+        <div class="info-window-content">
+            <h5 class="mb-1 text-primary">${locationData.title}</h5>
+            <p class="mb-1"><strong>Categoría:</strong> ${locationData.category}</p>
+            <p class="mb-1"><strong>Dirección:</strong> ${locationData.address}</p>
+            <p class="mb-1 text-muted">${locationData.unique_info}</p>
+            <hr class="my-1">
+            <button class="btn btn-sm btn-info text-white mt-1" 
+                    onclick="setDestinationFromTitle('${locationData.title}')">
+                Get Directions Here
+            </button>
+        </div>
+    `;
+// ...
+
+    // Listener para abrir InfoWindow
+    marker.addListener('click', () => {
+        infoWindow.setContent(content);
+        infoWindow.open(map, marker);
+    });
+
+
+    allMarkers.push({
+        marker: marker,
+        category: locationData.category,
+        title: locationData.title,
+        position: marker.getPosition() // Guarda el LatLng literal
+    });
+}
+
 
