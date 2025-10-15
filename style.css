@@ -1,17 +1,84 @@
-/* style.css */
+body {
+
+    background-color: #f7f9f7; 
+}
+
+/* Layout Principal */
 #map {
-    height: 100vh; /* Altura 100% del viewport en escritorio */
+    height: 100vh;
     width: 100%;
 }
 #controls-col {
     max-height: 100vh;
     overflow-y: auto; 
+    padding: 20px !important;
 }
 
+/* Estilos Temáticos */
+#controls-col h4, #controls-col h5 {
+    /* Color principal de la aplicación: Verde bosque */
+    color: #1a4314; 
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 5px;
+    margin-top: 20px !important;
+}
+
+
+.btn-primary {
+    background-color: #2b7a02; 
+    border-color: #1a4314;
+}
+
+.btn-primary:hover {
+    background-color: #1a4314;
+    border-color: #1a4314;
+}
+
+.btn-outline-primary {
+    color: #2b7a02;
+    border-color: #2b7a02;
+}
+
+.btn-outline-primary:hover {
+    background-color: #2b7a02;
+    color: white;
+}
+
+.btn-dark { 
+    background-color: #4a4a4a;
+    border-color: #333;
+}
+
+.btn-success { 
+    background-color: #4CAF50;
+    border-color: #388E3C;
+}
+
+.btn-warning { /* Show Route */
+    background-color: #ff9800;
+    border-color: #f57c00;
+    color: #333;
+}
+
+/* InfoWindow */
+.info-window-content {
+    font-size: 0.9rem;
+    padding: 5px;
+}
+.info-window-content .text-primary {
+    color: #1a4314 !important;
+    font-weight: bold;
+}
+.info-window-content .btn-info {
+    background-color: #03a9f4;
+    border-color: #03a9f4;
+}
+
+
+/*  Estilos Móviles (Responsivos) */
 @media (max-width: 768px) {
-    /* Cambio 1: Map Height */
     #map {
-        height: 60vh; 
+        height: 60vh; /* Mapa toma 60% de la altura */
     }
 
     #map-col {
@@ -19,13 +86,11 @@
     }
     #controls-col {
         order: 2; 
-
-        max-height: 40vh; 
+        max-height: 40vh; /* Controles toman 40% de la altura */
     }
-    /* Cambio 3: Full width buttons for filters */
+    /* Botones de filtro de ancho completo en móvil */
     .d-grid button {
         width: 100%;
         margin-bottom: 5px;
     }
 }
-
